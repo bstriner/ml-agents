@@ -96,6 +96,10 @@ namespace Unity.MLAgents
         /// <param name="academyStepCount">The current step count of the academy.</param>
         void MakeRequests(int academyStepCount)
         {
+            // this event is always triggered, check if component is enabled
+            if(!isActiveAndEnabled){
+                return;
+            }
             var context = new DecisionRequestContext
             {
                 AcademyStepCount = academyStepCount
